@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  mongo-master:
+    container_name: mongo
+
+    image: mvertes/alpine-mongo
+    restart: always
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "ddingcham"
+      MONGO_INITDB_ROOT_PASSWORD: "ddingcham"
+    
+    ports:
+      - 27017:27017
+    
+    volumes:
+      - mongo:/hack-shopping/mongo/data/db
+
+volumes:
+  mongo:
