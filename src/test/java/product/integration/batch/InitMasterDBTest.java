@@ -1,4 +1,4 @@
-package product.integration;
+package product.integration.batch;
 
 
 public class InitMasterDBTest {
