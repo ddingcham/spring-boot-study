@@ -14,7 +14,7 @@ services:
       - 27017:27017
     
     volumes:
-      - mongo:/hack-shopping/mongo/data/db
+      - mongo:/spring-boot-study/mongo/data/db
 
 volumes:
   mongo:
