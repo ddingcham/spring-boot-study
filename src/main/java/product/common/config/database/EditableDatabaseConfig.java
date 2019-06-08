@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        basePackages = "product.domain.book",
+        basePackages = "product.domain",
 //        repositoryBaseClass = EditableRepository.class,
         entityManagerFactoryRef = "editableEntityManagerFactory",
         transactionManagerRef = "transactionManagerForEditableEntity",
@@ -33,7 +33,7 @@ import javax.sql.DataSource;
 @Slf4j
 public class EditableDatabaseConfig {
 
-    private static final String ENTITY_PACKAGE_PATH_TO_SCAN = "product.domain.book";
+    private static final String ENTITY_PACKAGE_PATH_TO_SCAN = "product.domain.*";
 
     @Primary
     @Bean(name = "editableEntityManagerFactory")

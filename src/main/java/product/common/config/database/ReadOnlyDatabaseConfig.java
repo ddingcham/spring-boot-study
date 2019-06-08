@@ -6,20 +6,16 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.repository.Repository;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import javax.sql.DataSource;
 
 @Configuration
 @EnableJpaRepositories(
-        basePackages = "product.domain.store",
-//        repositoryBaseClass = ReadOnlyRepository.class,
+        basePackages = "product.domain",
         entityManagerFactoryRef = "readOnlyEntityManager",
         includeFilters = @Filter(ReadOnlyRepository.class)
 )
@@ -27,7 +23,7 @@ import javax.sql.DataSource;
 @RequiredArgsConstructor
 public class ReadOnlyDatabaseConfig {
 
-    private static final String ENTITY_PACKAGE_PATH_TO_SCAN_STORE = "product.domain.store";
+    private static final String ENTITY_PACKAGE_PATH_TO_SCAN_STORE = "product.domain";
 
     @Bean(name = "readOnlyEntityManager")
     public LocalContainerEntityManagerFactoryBean readOnlyEntitiyManager(EntityManagerFactoryBuilder builder,
