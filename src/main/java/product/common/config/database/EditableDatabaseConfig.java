@@ -8,6 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -23,9 +24,10 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 @EnableJpaRepositories(
         basePackages = "product.domain.book",
-        repositoryBaseClass = EditableRepository.class,
+//        repositoryBaseClass = EditableRepository.class,
         entityManagerFactoryRef = "editableEntityManagerFactory",
-        transactionManagerRef = "transactionManagerForEditableEntity"
+        transactionManagerRef = "transactionManagerForEditableEntity",
+        includeFilters = @Filter(EditableRepository.class)
 )
 @RequiredArgsConstructor
 @Slf4j
