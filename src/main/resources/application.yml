@@ -1,0 +1,33 @@
+########################
+## Hibernate Property ##
+########################
+spring:
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        ddl-auto: validate
+
+hibernate.dialect: org.hibernate.dialect.H2Dialect
+
+
+#############################################
+## Test In-Memory Database book (edtiable) ##
+#############################################
+editable:
+  datasource:
+    jdbcUrl: jdbc:h2:mem:testdb
+    username: test
+    password: test
+    driverClassName: org.h2.Driver
+
+################################################
+## Test In-Memory Database product (readOnly) ##
+################################################
+readonly:
+  datasource:
+    jdbcUrl: jdbc:h2:mem:testdb
+    username: test
+    password: test
+    driverClassName: org.h2.Driver
